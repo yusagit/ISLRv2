@@ -1,0 +1,129 @@
+---
+title: "Formulae"
+output: html_document
+---
+```{r,include=FALSE}
+library(tidyverse)
+library(lubridate)
+```
+## ISLR v2 Formulae List
+$(1.1)$  
+$\mbox{a vector of length p}$  
+$x_i = \begin{pmatrix} x_{i1} \\ x_{i2} \\ … \\ x_{ip} \end{pmatrix}$  
+```{r}
+# ひとまず全部書き出し→一発検索可能状態
+# その後、レイアウト整え
+```
+
+$(2.1)$  
+$Y = f(x) + \varepsilon$  
+
+$(2.2)$  
+$\hat Y = \hat f(x)$  
+
+$(2.3)$  
+$E(Y-\hat Y)^2 = E[f(x)+\varepsilon-\hat f(x)]^2$
+$=[f(x)-\hat f(x)]^2+Var(\varepsilon)$  
+$\overbrace{Reducible}^{[f(x)-\hat f(x)]^2} \overbrace{Irreducible}^{+Var(\varepsilon)}$  
+```{r}
+# [f(x)-\hat f(x)]^2 : Reducible
+# Var(\varepsilon)   : Irreducible
+```
+
+$(2.4)$  
+$f(x)=\beta_0+\beta_1X_1+\beta_2X_2+…+\beta_pX_p$
+
+$(2.5)$  
+$MSE=\frac{1}{n}\sum_{i=1}^n(y_i-\hat f(x_i))^2$
+
+$(2.6)$  
+$Avg(y_0-\hat f(x_0))^2$
+
+$(2.7)$  
+$E(y_0-\hat f(x_0))^2$
+$=Var(\hat f(x_0))+[Bias(\hat f(x_0))]^2+Var(\varepsilon)$
+
+$(2.8)$  
+$\frac{1}{n}\sum_{i=1}^nI(y_i\neq \hat y_i)$
+
+$(2.9)$  
+Test Error Rate:  
+$Avg(I(y_0\neq \hat y_0))$
+
+$(2.10)$  
+Bayes Classifier  
+$Pr(Y=j|X=x_0)$
+
+$(2.11)$  
+Bayes Error Rate  
+$1-E(\underset{j}{max}Pr(Y=j|X))$
+
+$(2.12)$  
+KNN Classifier  
+$Pr(Y=j|X=x_0)$  
+$=\frac{1}{k}\sum_{i\in\mathcal{N}}I(y_i=j)$
+
+## Linear Regression  
+$(3.1)$  
+$Y\approx \beta_0+\beta_1X$  
+
+$(3.2)$
+$\hat y = \hat \beta_0+\hat \beta_1x$  
+$\mbox{Residual Sum of Squares}$  
+$RSS=e_1^2+e_2^2+\cdots+e_n^2$  
+
+$(3.3)$
+$RSS=(y_1-\hat \beta_0-\hat \beta_1x_1)^2+(y_2-\hat \beta_0-\hat \beta_1x_2)^2+\cdots+(y_n-\hat \beta_0-\hat \beta_1x_n)^2$  
+
+$(3.4)$
+$\hat \beta_1=\frac{\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)}{\sum_{i=1}^n(x_i-\bar x)}$  
+$\hat \beta_0=\bar y-\hat \beta_1 \bar x$  
+
+$(3.5)$  
+$Y=\beta_0+\beta_1X+\varepsilon$  
+
+$(3.6)$  
+$Y=2+3X+\varepsilon$  
+
+$(3.7)$  
+$Var(\hat \mu)=SE(\hat \mu)^2=\frac{\sigma^2}{n}$
+
+$(3.8)$  
+$SE(\hat\beta_0)^2=\sigma^2[\frac{1}{n}+\frac{\bar x^2}{\sum_{i=1}^n(x_i-\bar x)^2}]$,  $SE(\hat\beta_1)^2=\frac{\sigma^2}{\sum_{i=1}^n(x_i-\bar x)^2}$  
+
+$(3.9)$  
+$\hat\beta_1\pm2\cdot SE(\hat\beta_1)$  
+
+$(3.10)$  
+$[\hat\beta_1-2\cdot SE(\hat\beta_1),\hat\beta_1+2\cdot SE(\hat\beta_1)]$  
+
+$(3.11)$  
+$\hat\beta_0\pm2\cdot SE(\hat\beta_0)$  
+
+$(3.12)$ 
+$\mbox{The }\textit{null hypothesis}$
+$H_0:\mbox{There is no relationship between X and Y}$  
+
+$(3.13)$  
+$\mbox{The }\textit{alternative hypothesis}$
+$H_a:\mbox{There is some relationship between X and Y}$
+
+$(3.14)$
+$t=\frac{\hat\beta_1-0}{SE(\hat\beta_1)},$
+
+options(knitr.table.format = "latex")
+$$
+\begin{table}[h]
+  \caption{TABLE 3.1}
+  \centering
+    \begin{tabular}{rllll}
+      \hline
+       & Coefficient & Std.error & t-statistic & p-value \\
+      Intercept & 7.0325 & 0.4578 & 15.36 & <0.0001 \\
+      TV & 0.0475 & 0.0027 & 17.64 & <0.0001 \\
+      \hline
+    \end{tabular}
+  \end{table}
+$$
+$$The table is numbered \ref{ex:table}
+\end{document}$$
